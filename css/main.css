@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: lightcyan;
+}
+
+.main-menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5vw;
+}
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.main-menu button {
+    cursor: pointer;
+    height: 10vh;
+    width: 10vw;
+    background-color: lightcyan;
+    /* border-bottom: 5px solid black; */
+}
