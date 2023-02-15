@@ -3,7 +3,7 @@
 }
 
 body {
-    margin: 0px;
+    margin: 0px 5px;
 }
 
 
@@ -30,5 +30,26 @@ header {
     height: 10vh;
     width: 10vw;
     background-color: lightcyan;
-    /* border-bottom: 5px solid black; */
+    border: 0px;
+}
+
+.main-menu button:hover {
+    border-bottom: 5px solid black;
+}
+
+.canvas-container {
+    width: 60vw;
+    height: 80vh;
+}
+
+.meme-editor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px
+}
+
+.image-gallery img {
+    height: 200px;
+    width: 200px;
+    margin: 10px;
 }
