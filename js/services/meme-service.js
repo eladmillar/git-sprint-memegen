@@ -5,13 +5,22 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'Sometimes',
+            txt: 'Sometimes it works',
             size: 40,
             align: 'center',
             color: 'white',
             outlineColor: 'black',
             font: 'impact',
             y: 60
+        },
+        {
+            txt: 'Sometimes it doesnt',
+            size: 40,
+            align: 'center',
+            color: 'white',
+            outlineColor: 'black',
+            font: 'impact',
+            y: 340
         }
     ]
 }
@@ -54,8 +63,10 @@ function addLine() {
         txt: '',
         size: 40,
         align: 'center',
-        color: 'red',
-        font: 'impact'
+        color: 'white',
+        outlineColor: 'black',
+        font: 'impact',
+        y: 200
     }
     gMeme.lines.push(newLine)
     gMeme.selectedLineIdx = gMeme.lines.length - 1

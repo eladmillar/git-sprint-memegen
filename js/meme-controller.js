@@ -19,14 +19,20 @@ function onMemeInit() {
 
 function renderMeme() {
     const { selectedImgId, selectedLineIdx, lines } = getMeme()
-    const currLine = lines[selectedLineIdx]
-    document.querySelector('[name=line-text]').value = currLine.txt
+    const selectedLine = lines[selectedLineIdx]
+    document.querySelector('[name=line-text]').value = selectedLine.txt
     drawImg(selectedImgId)
 
     if (!lines.length) return
-
-    setTimeout(drawText, 20, currLine.txt, currLine.size,
-        currLine.align, currLine.font, currLine.color, currLine.outlineColor, gElCanvas.width / 2, currLine.y)
+    // drawText(currLine.txt, currLine.size, currLine.align, currLine.font, currLine.color, currLine.outlineColor, gElCanvas.width / 2, currLine.y)
+    lines.forEach(line => {
+        setTimeout(drawText, 40, line.txt, line.size,
+            line.align, line.font, line.color,
+            line.outlineColor, gElCanvas.width / 2, line.y)
+    });
+    // setTimeout(drawText, 40, selectedLine.txt, selectedLine.size,
+    //     selectedLine.align, selectedLine.font, selectedLine.color,
+    //     selectedLine.outlineColor, gElCanvas.width / 2, selectedLine.y)
 }
 
 function drawImg(imgNum) {
@@ -66,6 +72,7 @@ function drawText(text, size, alignment, font, color, outlineColor, x, y) {
 
     gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
+    console.log('gCtx', gCtx)
 }
 
 function addListeners() {
@@ -91,6 +98,7 @@ function addListeners() {
 
 function onChangeLine() {
     changeLine()
+    renderMeme()
 }
 
 function onRaiseLine() {
@@ -109,7 +117,7 @@ function onAddLine() {
 }
 
 function onDeleteLine() {
-    const line = deleteLine()
+    deleteLine()
     renderMeme()
 }
 
