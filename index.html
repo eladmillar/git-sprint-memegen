@@ -13,7 +13,7 @@
 
 <body onload="onMemeInit()">
     <header>
-        <h1>Logo</h1>
+        <h1>memegen</h1>
         <nav class="main-nav">
             <ul class="main-menu clean-list">
                 <li><button href="#">Gallery</button></li>
@@ -27,33 +27,53 @@
         <section class="image-gallery">
         </section>
         <section class="meme-editor">
+
             <div class="canvas-container" hidden>
                 <canvas width="400" height="400" style="outline: 1px solid green"></canvas>
             </div>
+
             <div class="meme-inputs" hidden>
                 <input name="line-text" onkeyup="onSetLineText(this.value)" type="text" value="">
                 <div class="line-controls">
-                    <button onclick="onPrevLine()"><i class="fa-solid fa-arrow-up"></i></button>
-                    <button onclick="onNextLine()"><i class="fa-solid fa-arrow-down"></i></button>
+                    <button onclick="onChangeLine()"><img src="icons/change_line.png" alt=""></button>
+                    <button onclick="onRaiseLine()"><i class="fa-solid fa-arrow-up"></i></button>
+                    <button onclick="onLowerLine()"><i class="fa-solid fa-arrow-down"></i></button>
                     <button onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
                     <button onclick="onDeleteLine()"><i class="fa-solid fa-trash-can"></i></button>
                 </div>
 
                 <div class="text-controls">
                     <button onclick="onUpFontSize()"><img src="icons/increase_font.png" alt=""></button>
-                    <button onclick="onDwonFontSize()"><img src="icons/decrease_font.png" alt=""></button>
+                    <button onclick="onDownFontSize()"><img src="icons/decrease_font.png" alt=""></button>
                     <button onclick="onAlignLeft()"><i class="fa-solid fa-align-left"></i></button>
                     <button onclick="onAlignCenter()"><i class="fa-solid fa-align-center"></i></button>
                     <button onclick="onAlignRight()"><i class="fa-solid fa-align-right"></i></button>
                 </div>
+
                 <div class="style-controls">
                     <select oninput="onFontSelected(this.value)" name="font" id="font">
                         <option value="impact">Impact</option>
                         <option value="comic-sans">Comic Sans</option>
                     </select>
-                    <button><img src="icons/outline.png" alt=""></button>
-                    <button><i class="fa-solid fa-palette"></i></button>
 
+                    <div class="color-outline">
+                        <button>
+                            <img src="icons/outline.png" alt="">
+                            <input oninput="onChangeOutlineColor(this.value)" type="color" name="color" id="color">
+                        </button>
+                    </div>
+
+                    <div class="color-letters">
+                        <button>
+                            <i class="fa-solid fa-palette"></i>
+                            <input oninput="onChangeLetterColor(this.value)" type="color" name="color" id="color">
+                        </button>
+                    </div>
+
+                </div>
+                <div class="share">
+                    <button onclick="onUploadImg()"> Share </button>
+                    <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
                 </div>
             </div>
         </section>
@@ -66,6 +86,7 @@
     <script src="js/services/meme-service.js"></script>
     <script src="js/gallery-controller.js"></script>
     <script src="js/meme-controller.js"></script>
+    <script src="js/facebook-share.js"></script>
 </body>
 
 </html>

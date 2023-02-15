@@ -8,8 +8,10 @@ var gMeme = {
             txt: 'Sometimes',
             size: 40,
             align: 'center',
-            color: 'red',
-            font: 'impact'
+            color: 'white',
+            outlineColor: 'black',
+            font: 'impact',
+            y: 60
         }
     ]
 }
@@ -33,14 +35,18 @@ function setLineText(value) {
     gMeme.lines[gMeme.selectedLineIdx].txt = value
 }
 
-function prevLine() {
-    gMeme.selectedLineIdx--
+function changeLine() {
+    gMeme.selectedLineIdx++
+    if (gMeme.selectedLineIdx === gMeme.lines.length) gMeme.selectedLineIdx = 0
     console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
 }
 
-function nextLine() {
-    gMeme.selectedLineIdx++
-    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
+function raiseLine() {
+    gMeme.lines[gMeme.selectedLineIdx].y -= 10
+}
+
+function lowerLine() {
+    gMeme.lines[gMeme.selectedLineIdx].y += 10
 }
 
 function addLine() {
@@ -52,9 +58,7 @@ function addLine() {
         font: 'impact'
     }
     gMeme.lines.push(newLine)
-    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
     gMeme.selectedLineIdx = gMeme.lines.length - 1
-    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
 }
 
 function deleteLine() {
@@ -81,3 +85,12 @@ function alignCenter() {
 function alignRight() {
     gMeme.lines[gMeme.selectedLineIdx].align = 'right'
 }
+
+function changeLetterColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].color = color
+}
+
+function changeOutlineColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].outlineColor = color
+}
+

@@ -26,7 +26,7 @@ function renderMeme() {
     if (!lines.length) return
 
     setTimeout(drawText, 20, currLine.txt, currLine.size,
-        currLine.align, currLine.font, gElCanvas.width / 2, 60)
+        currLine.align, currLine.font, currLine.color, currLine.outlineColor, gElCanvas.width / 2, currLine.y)
 }
 
 function drawImg(imgNum) {
@@ -47,19 +47,22 @@ function onSetLineText(value) {
     renderMeme()
 }
 
+
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
 }
 
-function drawText(text, size, alignment, font, x, y) {
+function drawText(text, size, alignment, font, color, outlineColor, x, y) {
+    if (alignment === 'left') x = 30
+    if (alignment === 'right') x = gElCanvas.width - 30
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'brown'
-    gCtx.fillStyle = 'black'
+    gCtx.strokeStyle = `${outlineColor}`
+    gCtx.fillStyle = `${color}`
     gCtx.font = `${size}px ${font}`
     gCtx.textAlign = `${alignment}`
-    // gCtx.textBaseline = 'middle'
+    gCtx.textBaseline = 'middle'
 
     gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
@@ -86,13 +89,17 @@ function addListeners() {
 //     gElCanvas.addEventListener('touchend', onUp)
 // }
 
-function onPrevLine() {
-    prevLine()
+function onChangeLine() {
+    changeLine()
+}
+
+function onRaiseLine() {
+    raiseLine()
     renderMeme()
 }
 
-function onNextLine() {
-    nextLine()
+function onLowerLine() {
+    lowerLine()
     renderMeme()
 }
 
@@ -111,7 +118,7 @@ function onUpFontSize() {
     renderMeme()
 }
 
-function onDwonFontSize() {
+function onDownFontSize() {
     downFontSize()
     renderMeme()
 }
@@ -128,5 +135,15 @@ function onAlignCenter() {
 
 function onAlignRight() {
     alignRight()
+    renderMeme()
+}
+
+function onChangeLetterColor(color) {
+    changeLetterColor(color)
+    renderMeme()
+}
+
+function onChangeOutlineColor(color) {
+    changeOutlineColor(color)
     renderMeme()
 }
