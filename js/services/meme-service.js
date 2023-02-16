@@ -27,6 +27,7 @@ var gMeme = {
 
 
 function getMeme() {
+    if (!gMeme.lines.length) return gMeme.selectedImgId
     return gMeme
 }
 
@@ -73,6 +74,12 @@ function addLine() {
 }
 
 function deleteLine() {
+    if (gMeme.lines.length === 1) {
+        gMeme.lines[0].y = 60
+        gMeme.lines[0].txt = ''
+        setLineText()
+        return
+    }
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
     return gMeme.selectedLineIdx = (!gMeme.selectedLineIdx === -1) ? gMeme.selectedLineIdx -= 1 : gMeme.selectedLineIdx = 0
 }

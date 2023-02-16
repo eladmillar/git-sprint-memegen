@@ -50,7 +50,9 @@ header {
 
 .canvas-container {
     width: 45vw;
+    max-width: 400px;
     height: 60vh;
+    max-height: 400px;
 }
 
 .meme-editor {

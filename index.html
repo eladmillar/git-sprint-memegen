@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/f32bd1c256.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mobile.css">
     <title>Meme Generator</title>
 </head>
 
@@ -35,19 +36,27 @@
             <div class="meme-inputs" hidden>
                 <input name="line-text" onkeyup="onSetLineText(this.value)" type="text" value="">
                 <div class="line-controls">
-                    <button onclick="onChangeLine()"><img src="icons/change_line.png" alt=""></button>
-                    <button onclick="onRaiseLine()"><i class="fa-solid fa-arrow-up"></i></button>
-                    <button onclick="onLowerLine()"><i class="fa-solid fa-arrow-down"></i></button>
-                    <button onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
-                    <button onclick="onDeleteLine()"><i class="fa-solid fa-trash-can"></i></button>
+                    <button onclick="onChangeLine()" title="change line"><img src="icons/change_line.png"
+                            alt=""></button>
+                    <button onclick="onRaiseLine()" title="move line up"><i class="fa-solid fa-arrow-up"></i></button>
+                    <button onclick="onLowerLine()" title="move line down"><i
+                            class="fa-solid fa-arrow-down"></i></button>
+                    <button onclick="onAddLine()" title="add new line"><i class="fa-solid fa-plus"></i></button>
+                    <button onclick="onDeleteLine()" title="delete selected line"><i
+                            class="fa-solid fa-trash-can"></i></button>
                 </div>
 
                 <div class="text-controls">
-                    <button onclick="onUpFontSize()"><img src="icons/increase_font.png" alt=""></button>
-                    <button onclick="onDownFontSize()"><img src="icons/decrease_font.png" alt=""></button>
-                    <button onclick="onAlignLeft()"><i class="fa-solid fa-align-left"></i></button>
-                    <button onclick="onAlignCenter()"><i class="fa-solid fa-align-center"></i></button>
-                    <button onclick="onAlignRight()"><i class="fa-solid fa-align-right"></i></button>
+                    <button onclick="onUpFontSize()" title="bigger font"><img src="icons/increase_font.png"
+                            alt=""></button>
+                    <button onclick="onDownFontSize()" title="smaller font"><img src="icons/decrease_font.png"
+                            alt=""></button>
+                    <button onclick="onAlignLeft()" title="align left"><i
+                            class="fa-solid fa-align-left"></i></button>
+                    <button onclick="onAlignCenter()" title="align center"><i
+                            class="fa-solid fa-align-center"></i></button>
+                    <button onclick="onAlignRight()" title="align right"><i
+                            class="fa-solid fa-align-right"></i></button>
                 </div>
 
                 <div class="style-controls">
@@ -59,21 +68,23 @@
                     <div class="color-outline">
                         <button>
                             <img src="icons/outline.png" alt="">
-                            <input oninput="onChangeOutlineColor(this.value)" type="color" name="color" id="color">
+                            <input title="choose outline color" oninput="onChangeOutlineColor(this.value)" type="color"
+                                name="color" id="color">
                         </button>
                     </div>
 
                     <div class="color-letters">
                         <button>
                             <i class="fa-solid fa-palette"></i>
-                            <input oninput="onChangeLetterColor(this.value)" type="color" name="color" id="color">
+                            <input title="choose letter color" oninput="onChangeLetterColor(this.value)" type="color"
+                                name="color" id="color">
                         </button>
                     </div>
 
                 </div>
                 <div class="share">
                     <button onclick="onUploadImg()"> Share </button>
-                    <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
+                    <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download</a>
                 </div>
             </div>
         </section>

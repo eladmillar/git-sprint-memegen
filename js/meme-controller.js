@@ -1,6 +1,7 @@
 'use strict'
 let gElCanvas
 let gCtx
+let gCurrImg
 
 function onMemeInit() {
     gElCanvas = document.querySelector('canvas')
@@ -30,9 +31,6 @@ function renderMeme() {
             line.align, line.font, line.color,
             line.outlineColor, gElCanvas.width / 2, line.y)
     });
-    // setTimeout(drawText, 40, selectedLine.txt, selectedLine.size,
-    //     selectedLine.align, selectedLine.font, selectedLine.color,
-    //     selectedLine.outlineColor, gElCanvas.width / 2, selectedLine.y)
 }
 
 function drawImg(imgNum) {
@@ -72,7 +70,6 @@ function drawText(text, size, alignment, font, color, outlineColor, x, y) {
 
     gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
-    console.log('gCtx', gCtx)
 }
 
 function addListeners() {
@@ -80,7 +77,8 @@ function addListeners() {
     // addTouchListeners()
     //Listen for resize ev
     window.addEventListener('resize', () => {
-        onInit()
+        // onMemeInit()
+        resizeCanvas()
     })
 }
 
@@ -154,4 +152,10 @@ function onChangeLetterColor(color) {
 function onChangeOutlineColor(color) {
     changeOutlineColor(color)
     renderMeme()
+}
+
+
+function downloadImg(elLink) {
+    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    elLink.href = imgContent
 }
