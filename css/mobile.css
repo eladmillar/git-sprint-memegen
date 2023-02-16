@@ -36,12 +36,15 @@
         border-bottom: 0
     }
 
-
+    .image-gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+    }
 
     .image-gallery img {
         height: 120px;
         width: 120px;
-        margin: 10px;
     }
 
     .meme-editor {
@@ -56,6 +59,15 @@
         max-width: 400px;
         height: 50vh;
         max-height: 400px;
+        justify-self: center;
+    }
+
+    .about {
+        grid-template-rows: 1fr 2fr;
+        grid-template-columns: 1fr;
+    }
+    
+    .about .my-image {
         justify-self: center;
     }
 }

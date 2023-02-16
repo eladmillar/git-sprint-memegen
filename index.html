@@ -22,7 +22,7 @@
             <ul class="main-menu clean-list">
                 <li><button onclick="onLoadGallery()">Gallery</button></li>
                 <li><button href="#">Memes</button></li>
-                <li><button href="#">About</button></li>
+                <li><button onClick="window.location='#about'">About</button></li>
             </ul>
         </nav>
         <button class="menu-button" onclick="onToggleMenu()">☰</button>
@@ -94,17 +94,23 @@
         <section class="memes"></section>
     </main>
 
-    <section class="about">
-        <img src="img/me.jpg" alt="">
+    <section id="about" class="about">
+        <img class="my-image" src="img/me.jpg" alt="">
         <div class="about-content">
             <h3>Elad Millar</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, esse. Dolorum, debitis perferendis!</p>
+            <ul class="social-links clean-list flex space-between align-center">
+                <li><button href=""><img src="icons/linkedin-logo.png" alt=""></button></li>
+                <li><button href=""><img src="icons/facebook-logo_copy_2.png" alt=""></button></li>
+                <li><button href=""><img src="icons/github-logo.png" alt=""></button></li>
+            </ul>
         </div>
     </section>
 
     <footer class="footer">
         <h1>memegen</h1>
         <p>all rights reserved 2023</p>
+
     </footer>
 
     <script src="js/services/gallery-service.js"></script>

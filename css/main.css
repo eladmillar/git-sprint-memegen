@@ -213,11 +213,33 @@ body.menu-open .main-screen {
     padding: 40px;
 }
 
-.about img {
+.about-content {
+    display: grid;
+}
+
+.about-content ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.about .my-image {
 height: 100px;
 width: 100px;
 border-radius: 50%;
 justify-self: end;
+}
+
+.about button {
+    height: 40px;
+    width: 40px;
+    background-color: #ff7f00;
+    border-radius: 12px;
+    border: 0;
+}
+
+.about button:hover {
+    cursor: pointer;
 }
 
 footer {
