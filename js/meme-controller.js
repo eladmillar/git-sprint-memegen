@@ -82,7 +82,7 @@ function addListeners() {
     addTouchListeners()
     // Listen for resize ev
     window.addEventListener('resize', () => {
-        onMemeInit()
+        // onMemeInit()
     })
 }
 

@@ -70,6 +70,10 @@ header {
 }
 
 .meme-inputs {
+    width: 45vw;
+    max-width: 400px;
+    height: 60vh;
+    max-height: 400px;
     display: grid;
     grid-template-rows: repeat(3, minmax(40px, 60px));
 }
