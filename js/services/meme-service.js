@@ -43,6 +43,11 @@ function setLineX() {
     });
 }
 
+function setLineY() {
+    gMeme.lines[0].y = 60
+    gMeme.lines[1].y = 340
+}
+
 function getMeme() {
     if (!gMeme.lines.length) return gMeme.selectedImgId
     return gMeme

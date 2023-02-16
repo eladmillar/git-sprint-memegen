@@ -11,12 +11,14 @@ function onMemeInit() {
     gCtx = gElCanvas.getContext('2d')
 
     document.querySelector('.canvas-container').hidden = false
-    document.querySelector('.meme-inputs').hidden = false
+    document.querySelector('.meme-inputs').style.display = 'grid'
     document.querySelector('[name=line-text]').value = gMeme.lines[0].txt
 
     resizeCanvas()
 
     setLineX()
+    setLineY()
+
 
     renderMeme()
 

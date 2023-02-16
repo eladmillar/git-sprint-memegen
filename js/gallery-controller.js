@@ -1,18 +1,14 @@
 'use strict'
 
-let gMemeControl
-
 function onInit() {
     renderGallery()
-    let gMemeControl = document.querySelector('.meme-inputs')
 }
 
 function onLoadGallery() {
     renderGallery()
     document.querySelector('.image-gallery').hidden = false
     document.querySelector('.canvas-container').hidden = true
-    // document.querySelector('.meme-inputs').hide()
-    // memeControl.style.display = none
+    document.querySelector('.meme-inputs').style.display = 'none'
 }
 
 function renderGallery() {
