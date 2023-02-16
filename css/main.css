@@ -58,9 +58,11 @@ header {
 }
 
 .meme-editor {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
     gap: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .image-gallery img {
@@ -200,4 +202,27 @@ select[name="font"] {
 
 body.menu-open .main-screen {
     display: block;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.about img {
+height: 100px;
+width: 100px;
+border-radius: 50%;
+justify-self: end;
+}
+
+footer {
+    text-align: center;
+    background-color: #ff7f00;
+    padding: 10px;
+    color: white;
 }

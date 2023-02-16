@@ -46,9 +46,9 @@
 
     .meme-editor {
         display: grid;
-        grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         justify-content: center;
+        justify-items: center
     }
 
     .canvas-container {
