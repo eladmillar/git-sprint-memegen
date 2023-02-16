@@ -12,7 +12,7 @@
 </head>
 
 
-<body onload="onMemeInit()">
+<body onload="onInit()">
 
     <div class="main-screen" onclick="onToggleMenu()"></div>
 
@@ -20,7 +20,7 @@
         <h1>memegen</h1>
         <nav class="main-nav">
             <ul class="main-menu clean-list">
-                <li><button href="#">Gallery</button></li>
+                <li><button onclick="onLoadGallery()">Gallery</button></li>
                 <li><button href="#">Memes</button></li>
                 <li><button href="#">About</button></li>
             </ul>
@@ -37,7 +37,7 @@
                 <canvas width="400" height="400"></canvas>
             </div>
 
-            <div class="meme-inputs" hidden>
+            <div id="meme-inputs" class="meme-inputs">
                 <input name="line-text" onkeyup="onSetLineText(this.value)" type="text" value="">
                 <div class="line-controls">
                     <button onclick="onChangeLine()" title="change line"><img src="icons/change_line.png"
@@ -55,8 +55,7 @@
                             alt=""></button>
                     <button onclick="onDownFontSize()" title="smaller font"><img src="icons/decrease_font.png"
                             alt=""></button>
-                    <button onclick="onAlignLeft()" title="align left"><i
-                            class="fa-solid fa-align-left"></i></button>
+                    <button onclick="onAlignLeft()" title="align left"><i class="fa-solid fa-align-left"></i></button>
                     <button onclick="onAlignCenter()" title="align center"><i
                             class="fa-solid fa-align-center"></i></button>
                     <button onclick="onAlignRight()" title="align right"><i

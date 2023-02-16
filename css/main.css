@@ -60,7 +60,7 @@ header {
 .meme-editor {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px
+    gap: 10px;
 }
 
 .image-gallery img {

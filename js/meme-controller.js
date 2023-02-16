@@ -14,6 +14,8 @@ function onMemeInit() {
     document.querySelector('.meme-inputs').hidden = false
     document.querySelector('[name=line-text]').value = gMeme.lines[0].txt
 
+    // renderMemeControls()
+
     resizeCanvas()
 
     setLineX()
@@ -121,8 +123,10 @@ function onMove(ev) {
 }
 
 function onUp() {
+    if (!gStartPos) return
     setLineDrag(false)
     setTimeout(renderMeme, 50)
+    gStartPos = ''
 }
 
 function getEvPos(ev) {
