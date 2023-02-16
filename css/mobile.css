@@ -37,6 +37,13 @@
     }
 
 
+
+    .image-gallery img {
+        height: 140px;
+        width: 140px;
+        margin: 10px;
+    }
+
     .meme-editor {
         display: grid;
         grid-template-columns: 1fr;
