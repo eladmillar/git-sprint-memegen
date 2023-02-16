@@ -23,7 +23,7 @@ header {
 }
 
 .main-menu {
-    
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5vw;
@@ -72,6 +72,10 @@ header {
     grid-template-rows: repeat(3, minmax(40px, 60px));
 }
 
+input[name="line-text"] {
+    max-height: 3em
+}
+
 .line-controls {
     display: flex;
     justify-content: space-evenly;
@@ -94,6 +98,10 @@ header {
     border-radius: 20%;
     cursor: pointer;
     font-size: 25px;
+}
+
+select[name="font"] {
+    max-height: 2em
 }
 
 .meme-inputs button img {

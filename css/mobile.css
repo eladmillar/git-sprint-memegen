@@ -1,8 +1,14 @@
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .meme-editor {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         justify-content: center;
+    }
+    .canvas-container {
+        width: 100vw;
+        max-width: 400px;
+        height: 50vh;
+        max-height: 400px;
     }
 }
