@@ -36,12 +36,6 @@
         border-bottom: 0
     }
 
-    .image-gallery {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-items: center;
-    }
-
     .image-gallery img {
         height: 120px;
         width: 120px;
