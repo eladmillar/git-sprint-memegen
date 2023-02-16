@@ -1,14 +1,54 @@
 @media (max-width: 768px) {
+    body.menu-open .main-nav {
+        transform: translateX(0);
+    }
+
+    .menu-button {
+        display: initial;
+        height: 40px;
+        width: 40px;
+        margin-top: 20px;
+    }
+
+    header .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        border-inline-start: 1px solid black;
+
+        transform: translateX(100%);
+        transition: transform 0.6s;
+    }
+
+    .main-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .main-menu button {
+        border-bottom: 1px solid black;
+        width: 100px;
+    }
+
+    .main-menu button:hover {
+        border-left: 5px solid black;
+        border-bottom: 0
+    }
+
+
     .meme-editor {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         justify-content: center;
     }
+
     .canvas-container {
-        width: 100vw;
+        width: 80vw;
         max-width: 400px;
         height: 50vh;
         max-height: 400px;
+        justify-self: center;
     }
 }

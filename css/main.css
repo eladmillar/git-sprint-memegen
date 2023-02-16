@@ -14,7 +14,6 @@ header {
     justify-content: space-between;
     background-color: #ff7f00;
     color: white;
-
 }
 
 .main-content {
@@ -23,7 +22,6 @@ header {
 }
 
 .main-menu {
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5vw;
@@ -42,6 +40,10 @@ header {
     width: 10vw;
     background-color: #ff7f00;
     border: 0px;
+}
+
+.menu-button {
+    display: none;
 }
 
 .main-menu button:hover {
@@ -176,4 +178,19 @@ select[name="font"] {
     background-color: #ff7f00;
     color: white;
     border: none;
+}
+
+
+.main-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.6);
+    display: none;
+}
+
+body.menu-open .main-screen{
+    display: block;
 }

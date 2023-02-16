@@ -15,3 +15,7 @@ function onImageSelect(imgIdx) {
     document.querySelector('.image-gallery').hidden = true
     onMemeInit()
 }
+
+function onToggleMenu() {
+    document.body.classList.toggle('menu-open')
+}
