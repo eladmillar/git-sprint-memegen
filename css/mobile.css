@@ -37,7 +37,7 @@
     }
 
     .image-gallery {
-        grid-template-columns: repeat(2, minmax(200px, 1fr))
+        grid-template-columns: repeat(2, minmax(140px, 1fr))
     }
 
     .meme-editor {
