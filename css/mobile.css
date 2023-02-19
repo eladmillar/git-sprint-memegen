@@ -36,10 +36,9 @@
         border-bottom: 0
     }
 
-    /* .image-gallery img {
-        height: 120px;
-        width: 120px;
-    } */
+    .image-gallery {
+        grid-template-columns: repeat(2, minmax(200px, 1fr))
+    }
 
     .meme-editor {
         display: grid;
@@ -60,7 +59,7 @@
         grid-template-rows: 1fr 2fr;
         grid-template-columns: 1fr;
     }
-    
+
     .about .my-image {
         justify-self: center;
     }
