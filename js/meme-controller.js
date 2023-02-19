@@ -18,7 +18,8 @@ function onMemeInit() {
 
     setLineX()
     setLineY()
-
+    // const { selectedImgId } = getMeme()
+    // drawImg(selectedImgId)
 
     renderMeme()
 
@@ -29,15 +30,13 @@ function renderMeme() {
     const { selectedImgId, selectedLineIdx, lines } = getMeme()
     const selectedLine = lines[selectedLineIdx]
     document.querySelector('[name=line-text]').value = selectedLine.txt
-    drawImg(selectedImgId)
-
-    if (!lines.length) return
-    // drawText(currLine.txt, currLine.size, currLine.align, currLine.font, currLine.color, currLine.outlineColor, gElCanvas.width / 2, currLine.y)
-    lines.forEach(line => {
-        setTimeout(drawText, 40, line.txt, line.size,
-            line.align, line.font, line.color,
-            line.outlineColor, line.x, line.y)
-    });
+    const img = new Image()
+    img.src = gImgs[selectedImgId - 1].url
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+        lines.forEach((line ,idx) =>
+            drawText(line.txt, line.size, line.align, line.font, line.color, line.strokeColor, line.x, line.y, idx))
+    }
 }
 
 function drawImg(imgNum) {
@@ -65,7 +64,7 @@ function resizeCanvas() {
     gElCanvas.height = elContainer.offsetHeight
 }
 
-function drawText(text, size, alignment, font, color, outlineColor, x, y) {
+function drawText(text, size, alignment, font, color, outlineColor, x, y, lineIdx) {
     if (alignment === 'left') x = 30
     if (alignment === 'right') x = gElCanvas.width - 30
     gCtx.lineWidth = 2
@@ -74,9 +73,34 @@ function drawText(text, size, alignment, font, color, outlineColor, x, y) {
     gCtx.font = `${size}px ${font}`
     gCtx.textAlign = `${alignment}`
     gCtx.textBaseline = 'middle'
+    gCtx.save()
     gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
     setTextBoundries(gCtx.measureText(text), y, x)
+    if (lineIdx === gMeme.selectedLineIdx) {
+        drawRect(x, y, gCtx.font, text, alignment)
+    }
+    gCtx.restore()
+}
+
+function drawRect(x, y, font, txt, alignment) {
+    gCtx.font = font
+    const width = gCtx.measureText(txt).width
+    x = checkAlign(x, alignment, width)
+    const height = parseInt(gCtx.font.match(/\d+/), 10)
+    gCtx.strokeStyle = 'white'
+    gCtx.strokeRect(x - width / 2 - 10, y - height / 2, width + 20, height)
+}
+
+function checkAlign(x, alignment, width) {
+    switch (alignment) {
+        case 'center':
+            return x
+        case 'left':
+            return x + width / 2
+        case 'right':
+            return x - width / 2
+    }
 }
 
 function addListeners() {

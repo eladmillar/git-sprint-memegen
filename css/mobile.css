@@ -36,10 +36,10 @@
         border-bottom: 0
     }
 
-    .image-gallery img {
+    /* .image-gallery img {
         height: 120px;
         width: 120px;
-    }
+    } */
 
     .meme-editor {
         display: grid;

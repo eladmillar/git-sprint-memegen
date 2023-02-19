@@ -16,6 +16,10 @@ header {
     color: white;
 }
 
+header a {
+    cursor: pointer;
+}
+
 .main-content {
     background-color: #e3e3e3;
     padding: 20px;
@@ -58,17 +62,24 @@ header {
 }
 
 .meme-editor {
-    /* display: grid; */
-    /* grid-template-columns: 1fr 1fr; */
     gap: 10px;
     display: flex;
     justify-content: center;
 }
 
+.image-gallery {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 15px;
+    align-content: center;
+    align-items: center;
+}
+
 .image-gallery img {
-    height: 200px;
-    width: 200px;
-    margin: 10px;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
 }
 
 .image-gallery img:hover {

@@ -136,7 +136,7 @@ function addLine() {
         bottom: 0,
         left: 0,
         right: 0,
-        x: 0,
+        x: gElCanvas.width / 2,
         isDrag: false
     }
     gMeme.lines.push(newLine)
